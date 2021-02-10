@@ -1,9 +1,6 @@
-
 //============================================================================
 // Name        : main.cpp
-// Author      : JHK
-// Version     :
-// Copyright   : Your copyright notice
+// Author      : janhkrueger
 // Description : Hello World in C++, tutorial for Gitlab CI/CD Pipeline
 //============================================================================
 
