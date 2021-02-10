@@ -7,7 +7,13 @@ include:
 stages:
 - test
 - build
+- execute
 - cleanup
+
+cache:
+  key: "%CI_PIPELINE_ID%"
+  paths:
+    - bin/
 
 sast:
   variables:
@@ -19,6 +25,13 @@ sast:
 
 batch:
   stage: build
+  when: on_success
   script:
     - mkdir -p bin
-    -  make -f makeGeneric
+    - make -f makeGeneric
+
+run:
+  stage: execute
+  when: on_success
+  script:
+    - bin/main
