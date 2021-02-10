@@ -17,7 +17,7 @@ sast:
   artifacts:
     expire_in: 5 min
 
-.batch:
+batch:
   stage: build
   needs: ["test"]
   script:
