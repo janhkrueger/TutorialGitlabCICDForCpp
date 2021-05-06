@@ -32,6 +32,7 @@ sast:
 
 batch:
   stage: build
+  needs: [sast]]
   when: on_success
   script:
     - mkdir -p bin
@@ -39,6 +40,7 @@ batch:
 
 run:
   stage: execute
+  needs: [batch]
   when: on_success
   script:
     - bin/main
@@ -46,6 +48,7 @@ run:
 upload:
   image: curlimages/curl:latest
   stage: upload
+  needs: [batch]
   script:
     - |
       echo "Version metadata pattern 1: number is expresssed in filename as well so that version metadata is available when file is downloaded."
