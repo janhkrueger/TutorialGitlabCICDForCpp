@@ -28,7 +28,7 @@ sast:
   stage: test
   needs: []
   artifacts:
-    expire_in: 5 min
+    expire_in: 30 min
 
 batch:
   stage: build
@@ -48,7 +48,7 @@ run:
 upload:
   image: curlimages/curl:latest
   stage: upload
-  needs: [batch]
+  needs: [batch, flawfinder-sast, code_quality]
   script:
     - |
       echo "Version metadata pattern 1: number is expresssed in filename as well so that version metadata is available when file is downloaded."

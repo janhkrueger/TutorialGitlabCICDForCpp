@@ -1,5 +1,6 @@
 cleanup:
   stage: cleanup
+  needs: [run, upload]
   script:
     - echo "Cleaning up"
     - rm -rf bin/

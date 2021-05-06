@@ -17,7 +17,7 @@ variables:
 sast:
   stage: test
   artifacts:
-    expire_in: 5 min
+    expire_in: 30 min
     reports:
       sast: gl-sast-report.json
   rules:
