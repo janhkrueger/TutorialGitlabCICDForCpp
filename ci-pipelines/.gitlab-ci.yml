@@ -32,7 +32,7 @@ sast:
 
 batch:
   stage: build
-  needs: [sast]]
+  needs: [sast]
   when: on_success
   script:
     - mkdir -p bin
